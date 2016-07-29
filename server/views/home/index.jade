@@ -1,0 +1,9 @@
+extends ../layout
+
+block content
+    div#app
+        h1= message
+        h2= sub_message
+        input(v-model='hello')
+    script( src='https://npmcdn.com/vue@1.0.26/dist/vue.min.js' )
+    script( src='/javascripts/'+mainJS+'.js' )

@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///webpack:///vue/settings/App.vue"],"names":[],"mappings":"AAIA,UACE,YAAc","file":"static/css/setting.css","sourcesContent":["\n.v-link-active {\n\n}\n[v-cloak] {\n  display: none;\n}\n\n\n\n/** WEBPACK FOOTER **\n ** webpack:///vue/settings/App.vue\n **/"],"sourceRoot":""}
