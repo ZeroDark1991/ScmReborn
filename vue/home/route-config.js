@@ -3,10 +3,14 @@ export function configRouter (router) {
   // normal routes
   router.map({
     '/user': {
-      component: require('./views/user.vue')
+        component: function(resolve){
+            require(['./views/user.vue'],resolve)
+        }
     },
     '/home': {
-      component: require('./views/home.vue')
+        component: function(resolve){
+            require(['./views/home.vue'],resolve)
+        }
     },              
     // // not found handler
     // '*': {

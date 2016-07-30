@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "build": "node build/build.js",
-    "start": "node ./server/app"
+    "start": "node ./server/app",
+    "dev": "node ./build/dev-server.js"
   },
   "dependencies": {
     "body-parser": "~1.15.1",

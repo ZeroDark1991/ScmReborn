@@ -12,6 +12,7 @@ var port = process.env.PORT || config.dev.port
 // Define HTTP proxies to your custom API backend
 // https://github.com/chimurai/http-proxy-middleware
 var proxyTable = config.dev.proxyTable
+var Router = require('../server/routes')
 
 var app = express()
 var compiler = webpack(webpackConfig)
@@ -42,6 +43,10 @@ Object.keys(proxyTable).forEach(function (context) {
   app.use(context, proxyMiddleware(context, options))
 })
 
+app.set('views', path.join(__dirname, '../server/views'))
+app.set('view engine', 'jade')
+Router(app)
+
 // handle fallback for HTML5 history API
 app.use(require('connect-history-api-fallback')())
 
@@ -55,6 +60,7 @@ app.use(hotMiddleware)
 // serve pure static assets
 var staticPath = path.posix.join(config.build.assetsPublicPath, config.build.assetsSubDirectory)
 app.use(staticPath, express.static('./static'))
+
 
 module.exports = app.listen(port, function (err) {
   if (err) {
