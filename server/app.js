@@ -13,18 +13,25 @@ const Router = require('./routes')
 
 const app = express()
 const PORT = 3000
+const _self_ip = require('./util')._self_ip
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'jade')
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 app.use(logger('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
-app.use(express.static(path.join(__dirname, 'public')))
+
+app.use(express.static(path.join(__dirname, 'public'),{
+  maxAge: '7 days',
+  setHeaders: (res, path, stat)=>{
+    res.set('x-timestamp', Date.now()
+  )}
+}))
 
 Router(app)
 
@@ -61,6 +68,7 @@ app.use(function(err, req, res, next) {
 
 app.listen(PORT,() => {
   console.log(`Listening at localhost:${PORT}`)
+  console.log(_self_ip)
 })
 
 module.exports = app

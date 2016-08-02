@@ -2,43 +2,25 @@ const express = require('express')
 const router = express.Router()
 
 const map = require('../util')
-
-//模拟数据
 const sidebarItems = require('../../SideBarConfig')
-const dashBoardList = require('./dashboard')
 
 const env = process.env.NODE_ENV || 'development'
 
 const index = {
 	get: function(req,res){
 		console.log(req.headers)
-		res.render('home/index', {
+		res.render('settings/index', {
 			title: env,
-			route: 'home',
-			dashBoardList: dashBoardList,
+			route: 'settings',
+			sub_message: 'hey ZeroNinja',
 			sidebarItems: sidebarItems
 		})
-	}
-}
-
-const talk = {
-	get: function(req,res){
-		res.send('hehehe')
-	},
-	detail: function(req, res){
-		res.send('product list!')
 	}
 }
 
 const config = {
 	'\/': {
 		get: index.get,
-	},
-	'/talk': {
-		get: talk.get,
-		'/:id': {
-			get: talk.detail
-		}
 	}
 }
 

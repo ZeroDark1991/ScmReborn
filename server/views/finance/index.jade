@@ -1,14 +1,10 @@
-extends ../layout
+extends ./layout
 
 block stylesheet
     link(rel='stylesheet', href='/static/css/'+ route +'.css')
 
 block content
-    div#dashboard
-        h1= message
-        h2= sub_message
-    div#app
 
-block script        	
+block script
     script( src='/static/js/vendor.js' )
     script( src='/static/js/'+ route +'.js' )
