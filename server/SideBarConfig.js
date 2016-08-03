@@ -8,6 +8,11 @@ const config = [
 		name: '设置',
 		id: 'settings',
 		link: '/settings'
+	},
+	{
+		name: '财务管理',
+		id: 'finance',
+		link: '/finance'
 	}
 ]
 

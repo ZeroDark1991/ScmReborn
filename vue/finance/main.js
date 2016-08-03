@@ -25,3 +25,5 @@ const App = Vue.extend(app)
 configRouter(router)
 
 router.start(App, '#app')
+
+window.__router = router

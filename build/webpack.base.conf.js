@@ -5,7 +5,7 @@ var projectRoot = path.resolve(__dirname, '../')
 
 module.exports = {
   entry: {
-    home: './vue/home/main.js',
+    finance: './vue/finance/main.js',
     settings: './vue/settings/main.js',
   },
   output: {
