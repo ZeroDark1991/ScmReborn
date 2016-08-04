@@ -8,7 +8,6 @@ const env = process.env.NODE_ENV || 'development'
 
 const index = {
 	get: function(req,res){
-		console.log(req.headers)
 		res.render('settings/index', {
 			title: env,
 			route: 'settings',

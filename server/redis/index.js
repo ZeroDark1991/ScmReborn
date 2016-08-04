@@ -1,15 +1,20 @@
 'use strict'
 
-const client = require('redis').createClient({
-	host: '051ee95e997e4c54.redis.rds.aliyuncs.com',
-	port: 6379,
-	detect_buffers: true
-})
+const redis = require('redis')
 
-client.auth("051ee95e997e4c54:123123FFFfff", redis.print)
-client.set('key:test', `test data - ${Date.now()}`, redis.print)
-client.get('key:test', (err, reply)=>{
-	console.log(reply)
-})
+function redisTest(){
+    const client = redis.createClient(6379,'051ee95e997e4c54.redis.rds.aliyuncs.com',{
+	    detect_buffers: true
+    })
 
-client.quit()
+    client.auth("051ee95e997e4c54:123123FFFfff", redis.print)
+    client.set('key:test', 'helloworld', redis.print)
+    client.get('key:test', (err, reply) => {
+    	if(err) console.log(err)
+	    else console.log(reply)
+    })
+
+    client.quit()
+}
+
+module.exports = redisTest

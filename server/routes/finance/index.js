@@ -2,6 +2,8 @@ const express = require('express')
 const router = express.Router()
 
 const map = require('../util')
+
+//模拟数据
 const sidebarItems = require('../../SideBarConfig')
 const dashBoardList = require('./dashboard')
 
@@ -9,13 +11,11 @@ const env = process.env.NODE_ENV || 'development'
 
 const index = {
 	get: function(req,res){
-		console.log(req.headers)
 		res.render('finance/index', {
 			title: env,
 			route: 'finance',
-			sub_message: 'hey ZeroNinja',
+			dashBoardList: dashBoardList,
 			sidebarItems: sidebarItems,
-			dashBoardList: dashBoardList
 		})
 	}
 }
